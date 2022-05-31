@@ -1,2 +1,9 @@
 https://raw.githubusercontent.com/igorkll/appMarket3/main/nanixInstaller.lua;nanix;2
 https://raw.githubusercontent.com/igorkll/appMarket3/main/robotCraftInstaller.lua;robotCraft;1
+https://raw.githubusercontent.com/igorkll/appMarket3/main/md5Installer.lua;md5;1
+https://raw.githubusercontent.com/igorkll/appMarket3/main/libDeflateInstaller.lua;LibDeflate;1
+https://raw.githubusercontent.com/igorkll/appMarket3/main/shareITInstaller.lua;shareIT;1
+https://raw.githubusercontent.com/igorkll/appMarket3/main/photoInstaller.lua;photo;1
+https://raw.githubusercontent.com/igorkll/appMarket3/main/lchatInstaller.lua;lchat;1
+https://raw.githubusercontent.com/igorkll/appMarket3/main/ntapeInstaller.lua;ntape;1
+https://raw.githubusercontent.com/igorkll/appMarket3/main/runInstaller.lua;run;1
