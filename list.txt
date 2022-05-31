@@ -1,1 +1,2 @@
 https://raw.githubusercontent.com/igorkll/appMarket3/main/nanixInstaller.lua;nanix;2
+https://raw.githubusercontent.com/igorkll/appMarket3/main/robotCraftInstaller.lua;robotCraft;1
