@@ -11,5 +11,5 @@ elseif command == "uninstall" then
     fs.remove("/usr/bin/ntape.lua")
     fs.remove(su.getPath())
 elseif command == "install" then
-    assert(su.saveFile("/usr/bin/ntape.lua", su.getInternetFile("https://raw.githubusercontent.com/igorkll/appMarket3/main/ntape.lua")))
+    assert(su.saveFile("/usr/bin/ntape.lua", assert(su.getInternetFile("https://raw.githubusercontent.com/igorkll/appMarket3/main/ntape.lua"))))
 end
