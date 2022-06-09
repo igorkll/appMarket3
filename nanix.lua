@@ -4,22 +4,25 @@ local serialization = require("serialization")
 local su = require("superUtiles")
 local fs = require("filesystem")
 local unicode = require("unicode")
+local colorPic = require("colorPic")
+
+local colors = colorPic.getColors()
 
 --------------------------------------------
 
-local stateScene = gui.createScene(gui.selectColor(0x222222, nil, false), gui.maxX, gui.maxY)
-local main = gui.createScene(gui.selectColor(0x222222, nil, false), gui.maxX, gui.maxY)
-local noConnectScene = gui.createScene(gui.selectColor(0x222222, nil, false), gui.maxX, gui.maxY)
+local stateScene = gui.createScene(gui.selectColor(colors.gray, nil, false), gui.maxX, gui.maxY)
+local main = gui.createScene(gui.selectColor(colors.gray, nil, false), gui.maxX, gui.maxY)
+local noConnectScene = gui.createScene(gui.selectColor(colors.gray, nil, false), gui.maxX, gui.maxY)
 
 local connection
 local label = noConnectScene.createLabel((noConnectScene.sizeX // 2) - (24 // 2), noConnectScene.sizeY // 3, 24, 1, "нету подключения к нанитам")
-label.backColor = 0xAAAAAA
+label.backColor = colors.gray
 label.foreColor = 0
 
 local refreshButton = noConnectScene.createButton((noConnectScene.sizeX // 2) - 8, (noConnectScene.sizeY // 3) * 2, 16, 1, "refresh", function()
     connection(true)
 end)
-refreshButton.backColor = gui.selectColor(0xAAAAAA, nil, true)
+refreshButton.backColor = gui.selectColor(colors.gray, nil, true)
 refreshButton.foreColor = gui.selectColor(0, nil, false)
 refreshButton.invertBackColor = refreshButton.foreColor
 refreshButton.invertForeColor = refreshButton.backColor
@@ -131,22 +134,22 @@ for i = 1, inputsCount do
         if button == 1 then
             b.state = oldState
 
-            local controlScene = gui.createScene(0xAAAAAA, 40, 10)
+            local controlScene = gui.createScene(colors.gray, 40, 10)
 
             local closeButton = controlScene.createButton(1, 1, 8, 1, "close", function()
                 controlScene.remove()
                 gui.select(main)
             end)
-            closeButton.backColor = 0xFF0000
-            closeButton.foreColor = 0xFFFFFF
+            closeButton.backColor = colors.red
+            closeButton.foreColor = colors.white
 
             local noteLabel = controlScene.createLabel(1, 5, controlScene.sizeX, 1)
-            noteLabel.foreColor = 0xFFFFFF
-            noteLabel.backColor = 0x222222
+            noteLabel.foreColor = colors.white
+            noteLabel.backColor = colors.lightGray
 
             local mainNoteLabel = controlScene.createLabel(1, 3, controlScene.sizeX, 1, "управления заметкой к пину " .. tostring(i))
-            mainNoteLabel.foreColor = 0xFFFFFF
-            mainNoteLabel.backColor = 0x222222
+            mainNoteLabel.foreColor = colors.white
+            mainNoteLabel.backColor = colors.lightGray
 
             local function updateText()
                 noteLabel.text = cfg.notes[i] or "отсутствует"
@@ -161,8 +164,8 @@ for i = 1, inputsCount do
                 updateLabels()
                 gui.redraw()
             end)
-            input.backColor = 0xFFFFFF
-            input.foreColor = 0x222222
+            input.button.backColor = colors.white
+            input.button.foreColor = colors.black
             input.viewData = false
 
             local deleteNote = controlScene.createButton(controlScene.sizeX - 19, 9, 18, 1, "удалить заметку", function()
@@ -172,8 +175,8 @@ for i = 1, inputsCount do
                 updateLabels()
                 gui.redraw()
             end)
-            deleteNote.backColor = 0xFFFFFF
-            deleteNote.foreColor = 0x222222
+            deleteNote.backColor = colors.white
+            deleteNote.foreColor = colors.black
 
             gui.select(controlScene)
         else
@@ -185,7 +188,7 @@ for i = 1, inputsCount do
         end
     end, 1, cfg.pins[i])
     table.insert(buttons, b)
-    b.backColor = gui.selectColor(0xAAAAAA, nil, true)
+    b.backColor = gui.selectColor(colors.lightGray, nil, true)
     b.foreColor = gui.selectColor(0, nil, false)
     b.invertBackColor = b.foreColor
     b.invertForeColor = b.backColor
@@ -279,6 +282,12 @@ list.addStr(string.rep("-", list.sizeX))
 list.addStr("для упровления заметкой на пин")
 list.addStr("нажмите на его кнопку правой")
 list.addStr("кнопкой мыши")
+list.addStr(string.rep("-", list.sizeX))
+list.addStr("также обратите внимания на то что")
+list.addStr("scan показывает не все эфекты")
+list.addStr("например магнит и копатель остануться")
+list.addStr("незамечеными так что переберите все пины")
+list.addStr("еще и в ручьную")
 
 local dataList = main.createList(listsStart, list.posY + list.sizeY + 1, list.sizeX, 9)
 dataList.autoRedraw = false
