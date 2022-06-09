@@ -16,13 +16,13 @@ local noConnectScene = gui.createScene(gui.selectColor(colors.gray, nil, false),
 
 local connection
 local label = noConnectScene.createLabel((noConnectScene.sizeX // 2) - (24 // 2), noConnectScene.sizeY // 3, 24, 1, "нету подключения к нанитам")
-label.backColor = colors.gray
+label.backColor = colors.lightGray
 label.foreColor = 0
 
 local refreshButton = noConnectScene.createButton((noConnectScene.sizeX // 2) - 8, (noConnectScene.sizeY // 3) * 2, 16, 1, "refresh", function()
     connection(true)
 end)
-refreshButton.backColor = gui.selectColor(colors.gray, nil, true)
+refreshButton.backColor = gui.selectColor(colors.lightGray, nil, true)
 refreshButton.foreColor = gui.selectColor(0, nil, false)
 refreshButton.invertBackColor = refreshButton.foreColor
 refreshButton.invertForeColor = refreshButton.backColor
