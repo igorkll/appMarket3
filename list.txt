@@ -1,4 +1,4 @@
-https://raw.githubusercontent.com/igorkll/appMarket3/main/nanixInstaller.lua;nanix;2
+https://raw.githubusercontent.com/igorkll/appMarket3/main/nanixInstaller.lua;nanix;3
 https://raw.githubusercontent.com/igorkll/appMarket3/main/robotCraftInstaller.lua;robotCraft;1
 https://raw.githubusercontent.com/igorkll/appMarket3/main/md5Installer.lua;md5;1
 https://raw.githubusercontent.com/igorkll/appMarket3/main/LibDeflateInstaller.lua;LibDeflate;1
